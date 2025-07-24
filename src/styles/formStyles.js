@@ -129,5 +129,15 @@ export const formStyles = {
     fontSize: '16px',
     lineHeight: '1.5',
     marginTop: '8px'
+  },
+  loadingSpinner: {
+    display: 'inline-block',
+    width: '20px',
+    height: '20px',
+    border: '3px solid rgba(255,255,255,0.3)',
+    borderRadius: '50%',
+    borderTopColor: '#fff',
+    animation: 'spin 1s ease-in-out infinite',
+    marginRight: '8px'
   }
 };
