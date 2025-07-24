@@ -8,10 +8,15 @@ export const getStartedPageStyles = {
     justifyContent: 'center',
     minHeight: '100vh',
     padding: '0 24px',
-    textAlign: 'center'
+    marginTop: '-96px'
+  },
+  heroContent: {
+    textAlign: 'center',
+    maxWidth: '600px',
+    width: '100%'
   },
   title: {
-    fontSize: 'clamp(36px, 6vw, 72px)',
+    fontSize: 'clamp(36px, 6vw, 64px)',
     fontWeight: 'bold',
     marginBottom: '24px',
     background: 'linear-gradient(135deg, white, #e0e7ff, #bfdbfe)',
@@ -21,19 +26,17 @@ export const getStartedPageStyles = {
     lineHeight: '1.2'
   },
   description: {
-    fontSize: 'clamp(18px, 3vw, 24px)',
+    fontSize: 'clamp(18px, 3vw, 20px)',
     color: '#d1d5db',
-    marginBottom: '32px',
-    maxWidth: '768px',
-    margin: '0 auto 32px auto',
+    marginBottom: '40px',
     lineHeight: '1.6'
   },
   buttonContainer: {
     display: 'flex',
-    flexDirection: 'column',
     gap: '16px',
     justifyContent: 'center',
-    marginBottom: '48px'
+    marginTop: '24px',
+    flexWrap: 'wrap'
   },
   primaryButton: {
     background: 'linear-gradient(135deg, #7c3aed, #2563eb)',
@@ -51,7 +54,7 @@ export const getStartedPageStyles = {
   backButton: {
     background: 'transparent',
     border: '2px solid #6b7280',
-    padding: '12px 24px',
+    padding: '14px 28px',
     borderRadius: '50px',
     fontWeight: '600',
     fontSize: '16px',
@@ -59,7 +62,6 @@ export const getStartedPageStyles = {
     cursor: 'pointer',
     transform: 'scale(1)',
     transition: 'all 0.2s ease',
-    marginRight: '16px',
     textDecoration: 'none',
     display: 'inline-block',
     textAlign: 'center'
