@@ -12,18 +12,19 @@ export const candidateResultsStyles = {
   },
   container: {
     textAlign: 'center',
-    maxWidth: '1200px',
+    maxWidth: '1400px',
     width: '100%'
   },
   title: {
     fontSize: 'clamp(36px, 6vw, 64px)',
     fontWeight: 'bold',
     marginBottom: '16px',
-    background: 'linear-gradient(135deg, white, #e0e7ff, #bfdbfe)',
+    background: 'linear-gradient(135deg, #10b981, #059669, #047857)',
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent',
     backgroundClip: 'text',
-    lineHeight: '1.2'
+    lineHeight: '1.2',
+    animation: 'titleGlow 2s ease-in-out infinite alternate'
   },
   description: {
     fontSize: 'clamp(16px, 2.5vw, 20px)',
@@ -32,88 +33,152 @@ export const candidateResultsStyles = {
     lineHeight: '1.6'
   },
   tableContainer: {
-    background: 'rgba(255, 255, 255, 0.05)',
-    backdropFilter: 'blur(10px)',
-    borderRadius: '20px',
-    padding: '20px',
-    border: '1px solid rgba(255, 255, 255, 0.1)',
+    background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(5, 150, 105, 0.05))',
+    backdropFilter: 'blur(15px)',
+    borderRadius: '25px',
+    padding: '25px',
+    border: '2px solid rgba(16, 185, 129, 0.2)',
     marginBottom: '40px',
     overflowX: 'auto',
-    transition: 'all 1s ease-out'
+    transition: 'all 1s ease-out',
+    boxShadow: '0 20px 40px rgba(16, 185, 129, 0.1)',
+    animation: 'containerPulse 3s ease-in-out infinite'
   },
   table: {
     width: '100%',
     borderCollapse: 'collapse',
-    borderSpacing: 0
+    borderSpacing: 0,
+    tableLayout: 'fixed'
   },
   headerRow: {
-    background: 'rgba(168, 85, 247, 0.2)',
-    borderRadius: '10px'
+    background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.3), rgba(5, 150, 105, 0.2))',
+    borderRadius: '15px'
   },
   header: {
-    padding: '16px 12px',
+    padding: '18px 14px',
     color: '#f3f4f6',
-    fontWeight: '600',
+    fontWeight: '700',
     fontSize: '16px',
     textAlign: 'left',
-    borderBottom: '2px solid rgba(168, 85, 247, 0.3)',
-    background: 'transparent'
+    borderBottom: '3px solid rgba(16, 185, 129, 0.4)',
+    background: 'transparent',
+    textShadow: '0 1px 2px rgba(0,0,0,0.3)',
+    wordWrap: 'break-word'
+  },
+  // Fixed column widths
+  nameHeader: {
+    width: '15%',
+    minWidth: '120px'
+  },
+  emailHeader: {
+    width: '20%',
+    minWidth: '180px'
+  },
+  mobileHeader: {
+    width: '15%',
+    minWidth: '140px'
+  },
+  experienceHeader: {
+    width: '12%',
+    minWidth: '100px'
+  },
+  skillsHeader: {
+    width: '28%',
+    minWidth: '200px'
+  },
+  scoreHeader: {
+    width: '10%',
+    minWidth: '80px'
   },
   row: {
-    borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
-    transition: 'all 0.3s ease',
-    animation: 'slideInUp 0.6s ease-out forwards',
+    borderBottom: '1px solid rgba(16, 185, 129, 0.1)',
+    transition: 'all 0.4s ease',
+    animation: 'slideInUp 0.8s ease-out forwards',
     opacity: 0,
-    transform: 'translateY(20px)'
+    transform: 'translateY(30px)'
   },
   cell: {
-    padding: '16px 12px',
-    color: '#d1d5db',
+    padding: '18px 14px',
+    color: '#e5e7eb',
+    fontSize: '15px',
+    borderBottom: '1px solid rgba(16, 185, 129, 0.08)',
+    textAlign: 'left',
+    fontWeight: '500',
+    wordWrap: 'break-word',
+    verticalAlign: 'top'
+  },
+  nameCell: {
+    fontWeight: '700',
+    color: '#10b981'
+  },
+  emailCell: {
+    color: '#a3a3a3',
     fontSize: '14px',
-    borderBottom: '1px solid rgba(255, 255, 255, 0.05)',
-    textAlign: 'left'
+    fontFamily: 'monospace',
+    wordBreak: 'break-all'
+  },
+  mobileCell: {
+    color: '#10b981',
+    fontWeight: '600',
+    fontFamily: 'monospace'
+  },
+  experienceCell: {
+    color: '#10b981',
+    fontWeight: '700',
+    textAlign: 'center'
   },
   skillsCell: {
     display: 'flex',
     flexWrap: 'wrap',
-    gap: '4px'
+    gap: '6px',
+    alignItems: 'flex-start'
   },
   skillChip: {
-    background: 'linear-gradient(135deg, #7c3aed, #2563eb)',
+    background: 'linear-gradient(135deg, #10b981, #059669)',
     color: 'white',
     padding: '4px 8px',
     borderRadius: '12px',
-    fontSize: '12px',
-    fontWeight: '500',
-    whiteSpace: 'nowrap'
+    fontSize: '11px',
+    fontWeight: '600',
+    whiteSpace: 'nowrap',
+    boxShadow: '0 2px 4px rgba(16, 185, 129, 0.3)',
+    animation: 'chipBounce 0.5s ease-out',
+    marginBottom: '2px'
+  },
+  moreSkillsChip: {
+    background: 'rgba(16, 185, 129, 0.3)',
+    border: '1px solid rgba(16, 185, 129, 0.5)'
   },
   score: {
-    background: 'linear-gradient(135deg, #10b981, #059669)',
+    background: 'linear-gradient(135deg, #f59e0b, #d97706)',
     color: 'white',
-    padding: '6px 12px',
-    borderRadius: '20px',
+    padding: '8px 16px',
+    borderRadius: '25px',
     fontSize: '14px',
-    fontWeight: '600',
-    display: 'inline-block'
+    fontWeight: '700',
+    display: 'inline-block',
+    boxShadow: '0 4px 8px rgba(245, 158, 11, 0.3)',
+    animation: 'scorePulse 2s ease-in-out infinite'
   },
   buttonContainer: {
     display: 'flex',
     justifyContent: 'center',
-    marginTop: '20px'
+    marginTop: '30px'
   },
   backButton: {
-    background: 'transparent',
-    border: '2px solid #6b7280',
-    padding: '14px 28px',
+    background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(5, 150, 105, 0.1))',
+    border: '2px solid #10b981',
+    padding: '16px 32px',
     borderRadius: '50px',
     fontWeight: '600',
     fontSize: '16px',
-    color: '#d1d5db',
+    color: '#10b981',
     cursor: 'pointer',
     transform: 'scale(1)',
-    transition: 'all 0.2s ease',
+    transition: 'all 0.3s ease',
     textDecoration: 'none',
     display: 'inline-block',
-    textAlign: 'center'
+    textAlign: 'center',
+    boxShadow: '0 4px 15px rgba(16, 185, 129, 0.2)'
   }
 };

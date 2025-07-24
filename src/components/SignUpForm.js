@@ -120,13 +120,13 @@ const SignUpForm = () => {
       console.log('API Response:', candidatesData);
 
       // Navigate to results page with API data
-      navigate('/candidate-results', {
-        state: {
-          candidates: candidatesData,
-          skills: selectedSkills,
-          experience: experience
-        }
-      });
+      // navigate('/candidate-results', {
+      //   state: {
+      //     candidates: candidatesData,
+      //     skills: selectedSkills,
+      //     experience: experience
+      //   }
+      // });
 
     } catch (error) {
       console.error('API call failed:', error);
