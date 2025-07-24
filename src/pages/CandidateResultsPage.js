@@ -219,15 +219,17 @@ const CandidateResultsPage = () => {
             </table>
           </div>
 
-          <div style={candidateResultsStyles.buttonContainer}>
-            <Link 
-              to="/get-started"
-              style={candidateResultsStyles.backButton}
-              className="back-button"
-            >
-              🔍 Search Again
-            </Link>
-          </div>
+          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', marginTop: '2rem' }}>
+              <Link 
+                to="/get-started"
+                style={candidateResultsStyles.backButton}
+                className="back-button"
+              >
+                🔍 Search Again
+              </Link>
+
+          
+            </div>
         </div>
       </main>
     </div>

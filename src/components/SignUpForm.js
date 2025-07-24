@@ -104,7 +104,7 @@ const SignUpForm = () => {
       console.log('Sending request:', requestBody);
 
       // Make API call
-      const response = await fetch('https://dummy.com/fakeApi', {
+      const response = await fetch('https://ltc-reboot25-team-57.el.r.appspot.com/matchingEngine', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -119,56 +119,17 @@ const SignUpForm = () => {
       const candidatesData = await response.json();
       console.log('API Response:', candidatesData);
 
-      // Navigate to results page with API data
-      // navigate('/candidate-results', {
-      //   state: {
-      //     candidates: candidatesData,
-      //     skills: selectedSkills,
-      //     experience: experience
-      //   }
-      // });
-
-    } catch (error) {
-      console.error('API call failed:', error);
-      
-      // Fallback to mock data if API fails
-      const mockCandidatesData = [
-        {
-          name: "RAHUL VERMA",
-          email: "rahul.verma.dev@gmail.com",
-          mobile: "+91 9123456789",
-          experience: 5,
-          skills: ["Java", "Kotlin", "Scala", "Spring Boot", "Play Framework", "MySQL", "Cassandra", "Google Cloud Platform", "DigitalOcean", "Docker", "Jenkins", "Helm", "Prometheus", "Grafana", "Leadership", "Teamwork", "Communication"],
-          score: 33
-        },
-        {
-          name: "PRIYA SHARMA",
-          email: "priya.sharma@email.com",
-          mobile: "+91 9876543210",
-          experience: 4,
-          skills: selectedSkills.length > 0 ? selectedSkills : ["Java", "Spring Boot", "MySQL"],
-          score: 28
-        },
-        {
-          name: "AMIT KUMAR",
-          email: "amit.kumar.tech@gmail.com",
-          mobile: "+91 9988776655",
-          experience: parseInt(experience) || 3,
-          skills: selectedSkills.length > 0 ? selectedSkills : ["Java", "React", "Node.js"],
-          score: 31
-        }
-      ];
-
-      console.log('Using mock data:', mockCandidatesData);
-
-      // Navigate with mock data
+      //Navigate to results page with API data
       navigate('/candidate-results', {
         state: {
-          candidates: mockCandidatesData,
+          candidates: candidatesData,
           skills: selectedSkills,
           experience: experience
         }
       });
+
+    } catch (error) {
+      console.error('API call failed:', error);
     } finally {
       setIsLoading(false);
     }
