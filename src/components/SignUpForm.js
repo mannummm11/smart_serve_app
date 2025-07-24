@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { formStyles } from '../styles/formStyles';
 
 const SignUpForm = () => {
+  const navigate = useNavigate();
   const [selectedSkills, setSelectedSkills] = useState([]);
   const [skillsSearch, setSkillsSearch] = useState('');
   const [experience, setExperience] = useState('');
@@ -10,12 +12,49 @@ const SignUpForm = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const availableSkills = [
-    'Java', 'C', 'C++', 'Python', 'JavaScript', 'React', 'Node.js', 
-    'Angular', 'Vue.js', 'PHP', 'Ruby', 'Go', 'Rust', 'Swift', 
-    'Kotlin', 'C#', 'TypeScript', 'HTML', 'CSS', 'SQL', 'MongoDB', 
-    'PostgreSQL', 'MySQL', 'Redis', 'Docker', 'Kubernetes', 'AWS', 
-    'Azure', 'Git', 'Jenkins', 'Spring Boot', 'Django', 'Flask'
-  ];
+  'Java', 'C', 'C++', 'Python', 'JavaScript', 'React', 'Node.js', 
+  'Angular', 'Vue.js', 'PHP', 'Ruby', 'Go', 'Rust', 'Swift', 
+  'Kotlin', 'C#', 'TypeScript', 'HTML', 'CSS', 'SQL', 'MongoDB', 
+  'PostgreSQL', 'MySQL', 'Redis', 'Docker', 'Kubernetes', 'AWS', 
+  'Azure', 'Git', 'Jenkins', 'Spring Boot', 'Django', 'Flask',
+  // **New trending skills/up-and-coming**
+  'AI & ML Basics', 'TensorFlow', 'PyTorch', 'Prompt Engineering',
+  'LLM Engineering', 'GitHub Copilot', 'Agentic AI Workflow',
+  'Secure Coding Practices', 'DevSecOps', 'System Design',
+  'Cloud-Native Architecture', 'Serverless Computing',
+  'Low-Code Platforms', 'No-Code Tools', 'Quantum Computing Basics',
+  'Quantum Software Engineering', 'Edge Computing', 'AIoT',
+  'Progressive Web Apps', 'Microservices', 'API Design',
+  'GraphQL', 'gRPC', 'CI/CD Pipelines', 'GitLab CI/CD',
+  'GitHub Actions', 'Terraform', 'Ansible', 'Puppet', 'Chef',
+  'Observability (Prometheus, Grafana)', 'Site Reliability Engineering (SRE)',
+  'Blockchain Basics', 'Smart Contracts', 'Cybersecurity Awareness',
+  'Ethical AI', 'XAI (Explainable AI)', 'Cryptography', 'OAuth2',
+  'OpenID Connect', 'OAuth', 'Serverless Security',
+  'Container Security', 'Static Code Analysis', 'SonarQube',
+  'Data Structures & Algorithms', 'Performance Optimization',
+  'System Thinking', 'Soft Skills (Communication, Empathy)',
+  'Design Patterns', 'Clean Architecture', 'Domain-Driven Design',
+  'Event-Driven Architecture', 'Reactive Programming',
+  'State Management (Redux, MobX)', 'WebAssembly', 'Rust Web Dev',
+  'Mobile Dev (SwiftUI, Jetpack Compose)', 'Cross-Platform (Flutter)',
+  'UI/UX Fundamentals', 'Accessibility (a11y)', 'Localization (i18n)',
+  'Observability', 'Logging & Tracing', 'Chaos Engineering',
+  'Real-Time Systems (WebSockets, MQTT)', 'Testing (Unit, Integration)',
+  'Test Automation (Selenium, Cypress)', 'BDD/TDD',
+  'Data Engineering (ETL, Airflow)', 'Data Visualization (D3.js)',
+  'Big Data (Spark, Hadoop)', 'BI Tools (PowerBI, Tableau)',
+  'Redis Streams', 'Graph Databases (Neo4j)',
+  'Time-Series DBs (InfluxDB)', 'Message Queues (Kafka, RabbitMQ)',
+  'CI/CD Security Scanning', 'Compliance (GDPR, PCI)',
+  'Observability as Code', 'Digital Twins', 'Neuromorphic Computing Basics',
+  'Generative AI Models', 'Agentic AI', 'AI Ethics & Governance',
+  'ChatOps', 'Voice UX', 'Robotics Software Integration',
+  'Fintech Engineering', 'Cryptocurrency Platforms',
+  'DevOps Culture', 'Collaboration Tools (Miro, Jira)',
+  'Remote & Distributed Team Practices'
+];
+
 
   const filteredSkills = availableSkills.filter(skill => 
     skill.toLowerCase().includes(skillsSearch.toLowerCase()) &&
@@ -52,8 +91,13 @@ const SignUpForm = () => {
 
   const handleConfirm = () => {
     console.log('Confirmed:', { skills: selectedSkills, experience, outputText });
-    // Handle confirmation logic here
-    alert('Requirements confirmed successfully!');
+    // Navigate to results page with state
+    navigate('/candidate-results', {
+      state: {
+        skills: selectedSkills,
+        experience: experience
+      }
+    });
   };
 
   return (
