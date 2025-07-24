@@ -33,14 +33,7 @@ const HomePage = () => {
           >
             Get Started
           </Link>
-          <button 
-            style={homePageStyles.secondaryButton} 
-            className="secondary-button"
-            onMouseEnter={(e) => e.target.style.transform = 'scale(1.05)'}
-            onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
-          >
-            Learn More
-          </button>
+          
         </div>
       </div>
     </main>
