@@ -1,6 +1,6 @@
 # app.yaml
 runtime: nodejs20
-service: frontend
+#service: frontend
 instance_class: F1
 
 handlers:
