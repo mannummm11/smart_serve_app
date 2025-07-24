@@ -18,6 +18,16 @@ const Layout = ({ children }) => {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-20px); }
           }
+          @keyframes slideInUp {
+            0% {
+              opacity: 0;
+              transform: translateY(20px);
+            }
+            100% {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
           .primary-button:hover {
             transform: scale(1.05) !important;
             background: linear-gradient(135deg, #8b5cf6, #3b82f6) !important;
@@ -37,6 +47,20 @@ const Layout = ({ children }) => {
           .input-field:focus {
             border-color: #a855f7 !important;
             box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.1) !important;
+          }
+          .dropdown-item:hover {
+            background-color: rgba(168, 85, 247, 0.2) !important;
+          }
+          .chip-remove:hover {
+            background-color: rgba(255, 255, 255, 0.2) !important;
+          }
+          .confirm-button:hover {
+            background: rgba(16, 185, 129, 0.1) !important;
+            transform: scale(1.05) !important;
+          }
+          .table-row:hover {
+            background: rgba(168, 85, 247, 0.05) !important;
+            transform: translateY(-2px) !important;
           }
           @media (max-width: 640px) {
             .nav-links { display: none !important; }

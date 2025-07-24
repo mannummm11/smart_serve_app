@@ -4,8 +4,10 @@ import { candidateResultsStyles } from '../styles/candidateResultsStyles';
 
 const CandidateResultsPage = () => {
   const location = useLocation();
-  const { skills, experience } = location.state || {};
+  const { skills, experience } = location.state || { skills: [], experience: '' };
   const [isVisible, setIsVisible] = useState(false);
+
+  console.log('Received data:', { skills, experience }); // Debug log
 
   // Mock candidate data based on selected skills and experience
   const generateCandidates = () => {
@@ -22,13 +24,15 @@ const CandidateResultsPage = () => {
 
     return mockCandidates.map((candidate, index) => ({
       ...candidate,
-      skills: skills || ['JavaScript', 'React'],
+      skills: skills && skills.length > 0 ? skills : ['JavaScript', 'React', 'Node.js'],
       experience: experience || '5',
       score: Math.floor(Math.random() * 3) + 8 // Random score between 8-10
     }));
   };
 
   const candidates = generateCandidates();
+
+  console.log('Generated candidates:', candidates); // Debug log
 
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), 100);
@@ -41,6 +45,9 @@ const CandidateResultsPage = () => {
         <h1 style={candidateResultsStyles.title}>Candidate Results</h1>
         <p style={candidateResultsStyles.description}>
           Found {candidates.length} candidates matching your requirements
+          {skills && skills.length > 0 && (
+            <span> for skills: {skills.join(', ')} with {experience} years of experience</span>
+          )}
         </p>
 
         <div 
